@@ -25,7 +25,7 @@ const AppBar = ({ backgroundColor }) => {
     <View style={styles.container}>
       <LinearGradient
         // Background Linear Gradient
-        colors={['transparent', backgroundColor==='fancy' ? styles.fancyColor.color : backgroundColor]}
+        colors={['white', backgroundColor==='fancy' ? styles.fancyColor.color : backgroundColor]}
         style={styles.background}
       />
       <AppBarTab header='Repositories' color='textPrimary' />
