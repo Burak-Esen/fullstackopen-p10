@@ -1,7 +1,8 @@
 import React from 'react';
 import Constants from 'expo-constants';
-import { Text, StyleSheet, View, TouchableWithoutFeedback, Alert } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import RepositoryList from './RepositoryList';
+import AppBar from './bartab/AppBar';
 
 const styles = StyleSheet.create({
   container: {
@@ -14,12 +15,7 @@ const styles = StyleSheet.create({
 const Main = () => {
   return (
     <View style={styles.container}>
-      <Text>Rate Repository Application</Text>
-      <TouchableWithoutFeedback
-      onPress={() => Alert.alert('You pressed the text!')}
-    >
-      <Text>You can press me</Text>
-    </TouchableWithoutFeedback>
+      <AppBar backgroundColor='fancy' />
     <RepositoryList />
     </View>
   );
