@@ -68,6 +68,9 @@ const styles = StyleSheet.create({
     display:'flex',
     flex:1,
     flexDirection:'column'
+  },
+  fontType: {
+    fontFamily: theme.fonts.main
   }
 });
 
@@ -84,28 +87,27 @@ const RepositoryItem = ({ item }) => {
               <Image style={styles.avatar} source={{uri:item.ownerAvatarUrl}} />
             </View>
             <View style={styles.tdCont}>
-              <Text style={styles.title}>{item.fullName}</Text>
-              <Text style={styles.description}>{item.description}</Text>
-              <Text style={styles.langCont}>{item.language}</Text>
+              <Text style={[styles.title, styles.fontType]}>{item.fullName}</Text>
+              <Text style={[styles.description, styles.fontType]}>{item.description}</Text>
+              <Text style={[styles.langCont, styles.fontType]}>{item.language}</Text>
             </View>
           </View>
-
           <View style={styles.detailsCont}>
             <View style={styles.detailItems}>
-              <Text style={styles.title}>{getRounded(item.stargazersCount)}</Text>
-              <Text style={styles.description}>Stars</Text>
+              <Text style={[styles.title, styles.fontType]}>{getRounded(item.stargazersCount)}</Text>
+              <Text style={[styles.description, styles.fontType]}>Stars</Text>
             </View>
             <View style={styles.detailItems}>
-              <Text style={styles.title}>{getRounded(item.forksCount)}</Text>
-              <Text style={styles.description}>Forks</Text>
+              <Text style={[styles.title, styles.fontType]}>{getRounded(item.forksCount)}</Text>
+              <Text style={[styles.description, styles.fontType]}>Forks</Text>
             </View>
             <View style={styles.detailItems}>
-              <Text style={styles.title}>{getRounded(item.reviewCount)}</Text>
-              <Text style={styles.description}>Reviews</Text>
+              <Text style={[styles.title, styles.fontType]}>{getRounded(item.reviewCount)}</Text>
+              <Text style={[styles.description, styles.fontType]}>Reviews</Text>
             </View>
             <View style={styles.detailItems}>
-              <Text style={styles.title}>{getRounded(item.ratingAverage)}</Text>
-              <Text style={styles.description}>Rating</Text>
+              <Text style={[styles.title, styles.fontType]}>{getRounded(item.ratingAverage)}</Text>
+              <Text style={[styles.description, styles.fontType]}>Rating</Text>
             </View>
           </View>
         </View>
