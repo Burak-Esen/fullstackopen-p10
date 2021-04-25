@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, StyleSheet, TouchableOpacity, ScrollView } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import theme from '../../theme';
 import AppBarTab from './AppBarTab';
@@ -22,7 +22,9 @@ const styles = StyleSheet.create({
   barTabCont: {
     display:'flex',
     flexDirection: 'row',
-    justifyContent: 'space-around'
+  },
+  links: {
+    marginHorizontal:20
   }
 });
 
@@ -34,13 +36,26 @@ const AppBar = ({ backgroundColor }) => {
         colors={['white', backgroundColor==='fancy' ? styles.fancyColor.color : backgroundColor]}
         style={styles.background}
       />
-      <View style={styles.barTabCont}>
-        <Link to='/' component={TouchableOpacity} activeOpacity={0.1}>
+      
+      <View style={styles.barTabCont}><ScrollView horizontal showsHorizontalScrollIndicator={false}>
+        <Link style={styles.links} to='/' component={TouchableOpacity} activeOpacity={0.1}>
           <AppBarTab header='Repositories' color='textPrimary' />
         </Link>
-        <Link to='/signin' component={TouchableOpacity} activeOpacity={0.1}>
+        <Link style={styles.links} to='/signin' component={TouchableOpacity} activeOpacity={0.1}>
           <AppBarTab header='Sign In' color='textPrimary' />
         </Link>
+        <Link style={styles.links} to='/' component={TouchableOpacity} activeOpacity={0.1}>
+          <AppBarTab header='FAQ' color='textPrimary' />
+        </Link>
+        <Link style={styles.links} to='/' component={TouchableOpacity} activeOpacity={0.1}>
+          <AppBarTab header='Tools' color='textPrimary' />
+        </Link>
+        <Link style={styles.links} to='/' component={TouchableOpacity} activeOpacity={0.1}>
+          <AppBarTab header='About' color='textPrimary' />
+        </Link>
+        <Link style={styles.links} to='/' component={TouchableOpacity} activeOpacity={0.1}>
+          <AppBarTab header='Help' color='textPrimary' />
+        </Link></ScrollView>
       </View>
     </View>
   );
