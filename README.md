@@ -1,2 +1,2 @@
 # fullstackopen-p10
-submission repo for fullstackopen.com part-10
+submission repo for fullstackopen.com 2020 part-10

@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, TouchableWithoutFeedback } from 'react-native';
+import { StyleSheet, Text } from 'react-native';
 import theme from '../../theme';
 
 const styles = StyleSheet.create({
@@ -20,11 +20,7 @@ const AppBarTab = ({ header, color, style }) => {
     color==='textSecondary' && styles.colorSecondary,
     style
   ];
-  return (
-    <TouchableWithoutFeedback>
-      <Text style={headerStyle}>{ header }</Text>
-    </TouchableWithoutFeedback>
-  );
+  return <Text style={headerStyle}>{ header }</Text>;
 };
 
 export default AppBarTab;
