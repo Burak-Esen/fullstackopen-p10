@@ -37,25 +37,15 @@ const AppBar = ({ backgroundColor }) => {
         style={styles.background}
       />
       
-      <View style={styles.barTabCont}><ScrollView horizontal showsHorizontalScrollIndicator={false}>
-        <Link style={styles.links} to='/' component={TouchableOpacity} activeOpacity={0.1}>
-          <AppBarTab header='Repositories' color='textPrimary' />
-        </Link>
-        <Link style={styles.links} to='/signin' component={TouchableOpacity} activeOpacity={0.1}>
-          <AppBarTab header='Sign In' color='textPrimary' />
-        </Link>
-        <Link style={styles.links} to='/' component={TouchableOpacity} activeOpacity={0.1}>
-          <AppBarTab header='FAQ' color='textPrimary' />
-        </Link>
-        <Link style={styles.links} to='/' component={TouchableOpacity} activeOpacity={0.1}>
-          <AppBarTab header='Tools' color='textPrimary' />
-        </Link>
-        <Link style={styles.links} to='/' component={TouchableOpacity} activeOpacity={0.1}>
-          <AppBarTab header='About' color='textPrimary' />
-        </Link>
-        <Link style={styles.links} to='/' component={TouchableOpacity} activeOpacity={0.1}>
-          <AppBarTab header='Help' color='textPrimary' />
-        </Link></ScrollView>
+      <View style={styles.barTabCont}>
+        <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+          <Link style={styles.links} to='/signin' component={TouchableOpacity} activeOpacity={0.1}>
+            <AppBarTab header='Sign In' color='textPrimary' />
+          </Link>
+          <Link style={styles.links} to='/' component={TouchableOpacity} activeOpacity={0.1}>
+            <AppBarTab header='Repositories' color='textPrimary' />
+          </Link>
+        </ScrollView>
       </View>
     </View>
   );

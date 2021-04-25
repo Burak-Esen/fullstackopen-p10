@@ -3,7 +3,7 @@ const theme = {
     textPrimary: '#24292e',
     textSecondary: '#586069',
     primary: '#0366d6',
-    fancyHeaderBar: 'rgba(0,0,70,0.3)'
+    fancyHeaderBar: 'rgba(20,0,110,0.3)'
   },
   fontSizes: {
     body: 14,
