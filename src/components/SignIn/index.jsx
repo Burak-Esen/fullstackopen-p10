@@ -2,8 +2,7 @@ import React from 'react';
 import { Formik } from 'formik';
 import * as yup from 'yup';
 import SignInForm from './SignInForm';
-import { Redirect} from 'react-router-native';
-import storage from '../../utils/storage';
+import { useHistory } from 'react-router-native';
 import useSignIn from '../../hooks/useSignIn';
 
 const initialValues = {
@@ -16,12 +15,11 @@ const validatSchema = yup.object().shape({
 });
 
 const SignIn = () => {
-  const [redirectFlag, setRedirectFlag] = React.useState(false);
+  const history = useHistory();
   const [signIn, result] = useSignIn();
   React.useEffect(() => {
     if ( result.data ) {
-      storage.storeData('accessToken', result.data.authorize.accessToken);
-      setRedirectFlag(true);
+      history.push('/');
     }
   }, [result.data]);
   const onSubmit = values => {
@@ -29,9 +27,6 @@ const SignIn = () => {
       signIn(values);
     }
   };
-  if (redirectFlag) {
-    return <Redirect to='/' />;
-  }
 
   return (
     <Formik initialValues={initialValues} onSubmit={onSubmit} validationSchema={validatSchema}>
