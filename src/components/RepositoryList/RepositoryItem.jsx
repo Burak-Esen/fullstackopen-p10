@@ -74,12 +74,12 @@ const styles = StyleSheet.create({
   }
 });
 
-const getRounded = n => {
+export const getRounded = n => {
   return n > 999 ? String((n/1000).toFixed(1)).endsWith('0') ? (n/1000).toFixed(0) + 'K' : (n/1000).toFixed(1) + 'K' : n;
 };
 const RepositoryItem = ({ item }) => {
   return (
-    <View style={styles.container}>
+    <View testID="repoItem" style={styles.container}>
       <TouchableHighlight underlayColor={theme.colors.fancyHeaderBar} style={styles.highlight} onPress={()=>null}>
         <View style={styles.item}>
           <View style={styles.itdContainer}>
