@@ -36,3 +36,13 @@ export const ME = gql`
     }
   }
 `;
+
+export const GET_A_REPO = gql`
+  query repository($id: String!) {
+    repository(id:$id) {
+      id
+      fullName
+      url
+    }
+  }
+`;
