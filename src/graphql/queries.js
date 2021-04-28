@@ -38,11 +38,18 @@ export const ME = gql`
 `;
 
 export const GET_A_REPO = gql`
-  query repository($id: String!) {
+  query repository($id: ID!) {
     repository(id:$id) {
       id
       fullName
       url
+      description
+      ratingAverage
+      reviewCount
+      stargazersCount
+      forksCount
+      language
+      ownerAvatarUrl
     }
   }
 `;

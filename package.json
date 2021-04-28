@@ -14,7 +14,9 @@
     "transform": {
       "^.+\\.jsx?$": "babel-jest"
     },
-    "setupFilesAfterEnv": ["<rootDir>/setupTests.js"],
+    "setupFilesAfterEnv": [
+      "<rootDir>/setupTests.js"
+    ],
     "transformIgnorePatterns": [
       "node_modules/(?!(jest-)?react-native|react-clone-referenced-element|@react-native-community|expo(nent)?|@expo(nent)?/.*|react-navigation|@react-navigation/.*|@unimodules/.*|unimodules|sentry-expo|native-base|@sentry/.*|react-router-native)"
     ]
@@ -26,6 +28,7 @@
     "dotenv": "^8.2.0",
     "expo": "~38.0.8",
     "expo-linear-gradient": "~8.2.1",
+    "expo-linking": "^1.0.7",
     "expo-status-bar": "^1.0.2",
     "formik": "^2.2.6",
     "graphql": "^14.7.0",

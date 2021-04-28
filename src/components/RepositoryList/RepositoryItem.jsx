@@ -1,7 +1,7 @@
 import React from 'react';
 import { Text, View, StyleSheet, TouchableHighlight, Image } from 'react-native';
 import theme from '../../theme';
-
+import { useHistory } from 'react-router-native';
 const styles = StyleSheet.create({
   item: {
     margin:3,
@@ -76,11 +76,18 @@ const styles = StyleSheet.create({
 
 export const getRounded = n => {
   return n > 999 ? String((n/1000).toFixed(1)).endsWith('0') ? (n/1000).toFixed(0) + 'K' : (n/1000).toFixed(1) + 'K' : n;
+
 };
-const RepositoryItem = ({ item }) => {
+
+const AnItem = ({ item }) => {
+  const history = useHistory();
+  const redirect = () => {
+    history.push(`/repo/${item.id}`);
+  };
   return (
-    <View testID="repoItem" style={styles.container}>
-      <TouchableHighlight underlayColor={theme.colors.fancyHeaderBar} style={styles.highlight} onPress={()=>null}>
+    <TouchableHighlight testID="repoItem" underlayColor={theme.colors.fancyHeaderBar}
+        style={styles.highlight} onPress={redirect}
+      >
         <View style={styles.item}>
           <View style={styles.itdContainer}>
             <View style={styles.imgCont}>
@@ -106,14 +113,22 @@ const RepositoryItem = ({ item }) => {
               <Text style={[styles.description, styles.fontType]}>Reviews</Text>
             </View>
             <View style={styles.detailItems}>
-              <Text style={[styles.title, styles.fontType]}>{getRounded(item.ratingAverage)}</Text>
+              <Text style={[styles.title, styles.fontType]}>{item.ratingAverage}</Text>
               <Text style={[styles.description, styles.fontType]}>Rating</Text>
             </View>
           </View>
         </View>
       </TouchableHighlight>
+  );
+};
+
+const RepositoryItem = ({ item }) => {
+  return (
+    <View style={styles.container}>
+      <AnItem item={item} />
     </View>
   );
 };
+
 
 export default RepositoryItem;
