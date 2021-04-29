@@ -67,3 +67,20 @@ export const GET_A_REPO = gql`
   }
   ${RepoFragment}
 `;
+
+export const CREATE_REVIEW = gql`
+  mutation createReview( $review:CreateReviewInput! ) {
+    createReview( review:$review ) {
+      id
+      rating
+      user {
+        username
+      }
+      createdAt
+      text
+      repository {
+        id
+      }
+    }
+  }
+`;

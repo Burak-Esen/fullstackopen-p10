@@ -12,7 +12,6 @@ const useMe = () => {
   if (!loading) {
     me = data.authorizedUser;
   }
-  // apolloClient.resetStore();
 
   return { me, error, loading };
 };

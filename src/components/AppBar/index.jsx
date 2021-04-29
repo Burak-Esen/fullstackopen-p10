@@ -57,9 +57,14 @@ const AppBar = ({ backgroundColor }) => {
           {!me && !loading ? <Link style={styles.links} to='/signin' component={TouchableOpacity} activeOpacity={0.1}>
             <AppBarTab header='Sign In' color='textPrimary' />
           </Link> :
-          <Link onPress={SignOutHandler} style={styles.links} to='/' component={TouchableOpacity} activeOpacity={0.1}>
-            <AppBarTab header='Sign Out' color='textPrimary' />
-          </Link>}
+          <>
+            <Link onPress={SignOutHandler} style={styles.links} to='/' component={TouchableOpacity} activeOpacity={0.1}>
+              <AppBarTab header='Sign Out' color='textPrimary' />
+            </Link>
+            <Link to='/createReview'>
+              <AppBarTab header='Create a review' color='textPrimary' />
+            </Link>
+          </>}
         </ScrollView>
       </View>
     </View>

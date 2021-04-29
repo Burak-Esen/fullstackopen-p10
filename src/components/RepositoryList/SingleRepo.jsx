@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     borderRadius: 10,
     margin: 10,
-    paddingVertical: 10
+    paddingTop: 10
   },
   linkButton: {
     backgroundColor: theme.colors.primary,
