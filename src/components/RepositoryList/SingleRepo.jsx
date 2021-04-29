@@ -4,6 +4,8 @@ import RepositoryItem from './RepositoryItem';
 import { useParams } from "react-router-native";
 import { openURL } from 'expo-linking';
 import useRepo from '../../hooks/singleRepo';
+import Review from './Review';
+import theme from '../../theme';
 
 const styles = StyleSheet.create({
   container: {
@@ -11,14 +13,15 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     backgroundColor: 'white',
     borderRadius: 10,
-    marginVertical: 10,
+    margin: 10,
     paddingVertical: 10
   },
   linkButton: {
-    backgroundColor: '#0366d6',
+    backgroundColor: theme.colors.primary,
     color: 'white',
     padding: 10,
     marginHorizontal: 50,
+    marginBottom: 20,
     borderRadius:10,
     textAlign: 'center',
     fontSize: 20,
@@ -33,7 +36,6 @@ const SingleRepo = () => {
     getRepo({ variables: { id } });
   }, [result.data]);
   if (result.data){
-    console.log(result.data);
     const item = result.data.repository;
     const linkHandler = () => {
       openURL(item.url);
@@ -42,10 +44,9 @@ const SingleRepo = () => {
       <View style={styles.container}>
         <RepositoryItem item={item} />
         <View>
-          <View>
-            <Text style={styles.linkButton} onPress={linkHandler} >Open in GitHub</Text>
-          </View>
+          <Text style={styles.linkButton} onPress={linkHandler} >Open in GitHub</Text>
         </View>
+        <Review reviews={item.reviews.edges.map(e => e.node)}/>
       </View>
     );
   }
