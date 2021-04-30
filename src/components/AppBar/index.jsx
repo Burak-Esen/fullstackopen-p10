@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
   },
   links: {
-    marginHorizontal:20
+    marginHorizontal:10
   }
 });
 
@@ -54,17 +54,24 @@ const AppBar = ({ backgroundColor }) => {
           <Link style={styles.links} to='/' component={TouchableOpacity} activeOpacity={0.1}>
             <AppBarTab header='Repositories' color='textPrimary' />
           </Link>
-          {!me && !loading ? <Link style={styles.links} to='/signin' component={TouchableOpacity} activeOpacity={0.1}>
-            <AppBarTab header='Sign In' color='textPrimary' />
-          </Link> :
-          <>
-            <Link onPress={SignOutHandler} style={styles.links} to='/' component={TouchableOpacity} activeOpacity={0.1}>
-              <AppBarTab header='Sign Out' color='textPrimary' />
-            </Link>
-            <Link to='/createReview'>
-              <AppBarTab header='Create a review' color='textPrimary' />
-            </Link>
-          </>}
+          { !me && !loading ?
+            <>
+              <Link style={styles.links} to='/signin' component={TouchableOpacity} activeOpacity={0.1}>
+                <AppBarTab header='Sign In' color='textPrimary' />
+              </Link> 
+              <Link style={styles.links} to='/signup' component={TouchableOpacity} activeOpacity={0.1}>
+                <AppBarTab header='Sign Up' color='textPrimary' />
+              </Link> 
+            </> :
+            <>
+              <Link onPress={SignOutHandler} style={styles.links} to='/' component={TouchableOpacity} activeOpacity={0.1}>
+                <AppBarTab header='Sign Out' color='textPrimary' />
+              </Link>
+              <Link to='/createReview' style={styles.links} component={TouchableOpacity} activeOpacity={0.1}>
+                <AppBarTab header='Create a review' color='textPrimary' />
+              </Link>
+            </>
+          }
         </ScrollView>
       </View>
     </View>

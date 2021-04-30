@@ -1,35 +1,15 @@
 import React from 'react';
-import { View, Text, TouchableWithoutFeedback, StyleSheet } from 'react-native';
+import { View, Text, TouchableWithoutFeedback } from 'react-native';
 import FormikTextInput from '../FormikTextInput';
+import { formStyles } from '../../theme';
 
 const SignInForm = ({ onSubmit }) => {
-  const styles = StyleSheet.create({
-    input: {
-      margin: 10,
-      padding: 10,
-      fontSize: 16,
-      borderRadius: 5
-    },
-    formCont: {
-      flex: 1,
-    },
-    buttonText: {
-      borderWidth:0,
-      backgroundColor: '#0060A7',
-      color: 'white',
-      padding: 15,
-      fontWeight: 'bold',
-      textAlign: 'center',
-      fontSize: 16
-    },
-
-  });
   return (
-    <View style={styles.formCont}>
-      <FormikTextInput testID="usernameInput" style={[styles.input, styles.inputN]} name="username" placeholder="Username" />
-      <FormikTextInput testID="passwordInput" style={[styles.input, styles.inputP]} secureTextEntry name="password" placeholder="Password" />
-      <TouchableWithoutFeedback testID="submitButton" style={styles.input} onPress={onSubmit}>
-        <Text style={[styles.input, styles.buttonText]}>Sign In</Text>
+    <View style={formStyles.formCont}>
+      <FormikTextInput testID="usernameInput" style={[formStyles.input, formStyles.inputN]} name="username" placeholder="Username" />
+      <FormikTextInput testID="passwordInput" style={[formStyles.input, formStyles.inputP]} secureTextEntry name="password" placeholder="Password" />
+      <TouchableWithoutFeedback testID="submitButton" style={formStyles.input} onPress={onSubmit}>
+        <Text style={[formStyles.input, formStyles.buttonText]}>Sign In</Text>
       </TouchableWithoutFeedback>
     </View>
   );

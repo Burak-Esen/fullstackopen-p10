@@ -1,4 +1,26 @@
 import { Platform } from 'react-native';
+import { StyleSheet } from 'react-native';
+
+export const formStyles = StyleSheet.create({
+  input: {
+    margin: 10,
+    padding: 10,
+    fontSize: 16,
+    borderRadius: 5
+  },
+  formCont: {
+    flex: 1,
+  },
+  buttonText: {
+    borderWidth:0,
+    backgroundColor: '#0060A7',
+    color: 'white',
+    padding: 15,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    fontSize: 16
+  },
+});
 
 const theme = {
   colors: {

@@ -4,6 +4,7 @@ import theme from '../../theme';
 
 const styles = StyleSheet.create({
   header: {
+    padding: 5,
     fontSize: 16,
     fontWeight:'bold',
     textAlign: 'center',
