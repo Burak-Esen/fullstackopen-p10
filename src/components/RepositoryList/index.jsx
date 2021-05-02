@@ -2,6 +2,7 @@ import React from 'react';
 import { FlatList, View, StyleSheet, ActivityIndicator } from 'react-native';
 import RepositoryItem from './RepositoryItem';
 import useRepositories from '../../hooks/useRepositories';
+import OrderComp from './OrderComp';
 
 const styles = StyleSheet.create({
   separator: {
@@ -19,10 +20,14 @@ const styles = StyleSheet.create({
 const ItemSeparator = () => <View style={styles.separator} />;
 
 const RepositoryList = () => {
-  const { repositories, loading } = useRepositories();
-
+  const [ queryVariables, setQVariables ] = React.useState();
+  
+  const { repositories, loading } = useRepositories(queryVariables);
   return (!loading ?
-      <RepositoryListContainer repositories={repositories} /> :
+      <View>
+        <OrderComp setQVariables={setQVariables} buttonText='Order by...' />
+        <RepositoryListContainer repositories={repositories} />
+      </View> :
       <View style={styles.loaderCont}>
         <ActivityIndicator style={styles.loader} size='large' color='steelblue' />
       </View>
@@ -39,6 +44,7 @@ export const RepositoryListContainer = ({ repositories }) => {
         data={reposData}
         ItemSeparatorComponent={ItemSeparator}
         renderItem={RepositoryItem}
+        ListFooterComponent={<View style={{height: 100, backgroundColor: 'whitesmoke'}}/>}
       />
   );
 };

@@ -1,4 +1,5 @@
 import { Platform } from 'react-native';
+import { DefaultTheme } from 'react-native-paper';
 import { StyleSheet } from 'react-native';
 
 export const formStyles = StyleSheet.create({
@@ -21,6 +22,15 @@ export const formStyles = StyleSheet.create({
     fontSize: 16
   },
 });
+
+export const rNPaperTheme = {
+  ...DefaultTheme,
+  colors: {
+    ...DefaultTheme.colors,
+    primary: 'rgba(20,0,110,0.3)',
+    accent: 'yellow',
+  }
+};
 
 const theme = {
   colors: {
